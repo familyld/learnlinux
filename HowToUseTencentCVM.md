@@ -73,8 +73,24 @@
 
 ![putty](https://mccdn.qcloud.com/img56a5d38a4ffbc.png)
 
-这里我们有三个地方是要注意的，一是Host Name，主机名就是公网IP；二是Port，端口是22，前面设置安全组时打开即可。三是连接类型，这里选择SSH协议。为了下次不用重复设置，我们可以把这些设置保存为一个会话，在Saved Sessions下面的空白框输入会话名（随意设一个名字就可以了），然后点击Save按钮保存。下次要登录云主机时，选中这个会话，点击Load按钮，设置信息就会自动填写好了。完成后点击Open进行连接：
+这里我们有三个地方是要注意的，一是Host Name，主机名就是公网IP；二是Port，端口是22，前面设置安全组时打开即可。三是连接类型，这里选择SSH协议。为了下次不用重复设置，我们可以把这些设置保存为一个会话，在Saved Sessions下面的空白框输入会话名（随意设一个名字就可以了），然后点击Save按钮保存。下次要登录云主机时，选中这个会话，点击Load按钮，设置信息就会自动填写好了。完成后点击Open按钮进行连接：
 
+![登录](https://raw.githubusercontent.com/familyld/learnlinux/master/graph/login.png)
 
+弹出的控制台要求我们输入用户名和密码登录，这些信息都在我们购买后收到的站内信里面：
 
 ![站内信](https://mccdn.qcloud.com/img56a20f10a373a.png)
+
+Ubuntu系统的用户名就是ubuntu，初始密码就是站内信中给出的web客户端登录密码。
+
+顺利的话，到这里就成功登录，可以开始使用了。
+
+但是，笔者在实际使用时遇到了一个问题，在输入用户名回车后，Putty提示``"Disconnected:No supported authentication methods available"``，也就是说无法通过密码登录。可能是笔者前面摆弄的时候玩脱了.. 查了一下，要解决这个问题也相当简单，我们需要修改主机的sshd_config文件，令其支持密码验证功能。
+
+回到管理界面，通过网页端登录并进入到云服务器内，使用``sudo vi /etc/ssh/sshd_config``语句打开配置文件。
+
+在vi下通过``:e``进入编辑模式，找到``PasswordAuthentication no``这一行，把no改为yes。然后按Esc回到命令模式，使用``:wq``保存文件并退出。注意前面打开文件时一定要使用sudo，否则会因为没有修改文件的权限而无法保存。
+
+完成后重启云服务器，然后再次尝试远程登录，这次终于成功了：
+
+
