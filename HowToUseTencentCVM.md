@@ -93,4 +93,6 @@ Ubuntu系统的用户名就是ubuntu，初始密码就是站内信中给出的we
 
 完成后重启云服务器，然后再次尝试远程登录，这次终于成功了：
 
+![成功](https://raw.githubusercontent.com/familyld/learnlinux/master/graph/finish.png)
 
+接下来可以按照自己需要配置工作环境，比方说配置ftp，配置git等等，这里就不多说了。
