@@ -81,7 +81,7 @@
 
 ![站内信](https://mccdn.qcloud.com/img56a20f10a373a.png)
 
-Ubuntu系统的用户名就是ubuntu，初始密码就是站内信中给出的web客户端登录密码。
+Ubuntu系统的用户名就是ubuntu，初始密码就是站内信中给出的web客户端登录密码。Linux下输入的密码是不会显示出来的，输入完直接按回车就可以了。
 
 顺利的话，到这里就成功登录，可以开始使用了。
 
@@ -95,4 +95,8 @@ Ubuntu系统的用户名就是ubuntu，初始密码就是站内信中给出的we
 
 ![成功](https://raw.githubusercontent.com/familyld/learnlinux/master/graph/finish.png)
 
-接下来可以按照自己需要配置工作环境，比方说配置ftp，配置git等等，这里就不多说了。
+然后我们还需要修改一下初始密码，在Ubuntu下可以利用``passwd``命令修改密码，不带参数的话就是直接修改根用户密码，回车后先输入初始密码，然后根据提示输入两次新密码就修改完成了。这样下一次登录时需要使用的就是新密码了。
+
+如果购买了数据盘，还需要进行格式化才能使用，详见[官方教程](https://www.qcloud.com/doc/product/213/2974)。
+
+接下来可以按照自己需要配置工作环境，比方说配置ftp，配置git，配置nginx等等，同样参见[官方教程](https://www.qcloud.com/doc/product/213/2975)，这里就不多说了。
